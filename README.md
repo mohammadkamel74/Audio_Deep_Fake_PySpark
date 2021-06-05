@@ -19,4 +19,6 @@ Please see the following links for extracting audio features:
 
 ## Data
 
-A very light weight version of data is provided in    folder that guide you have to use CQT to make your dataset and use it for trianing. It worth mentioning that the provoded data is just sample files to test the approach. For investigation you must build your own rich dataset.
+A very light weight version of data is provided in Sample_Data folder that guides you have to use CQT to make your dataset. It worth mentioning that the provided data is just sample files to test the approach. For investigation you must build your own rich dataset. In case you need the full data you can directly contact me via email.
+
+email: kamel.1911242@studenti.uniroma1.it
