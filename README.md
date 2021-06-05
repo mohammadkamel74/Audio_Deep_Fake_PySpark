@@ -9,6 +9,9 @@ In this project an attempt is made to train models that are capable to detect fa
 pip install -r requirements.txt
 apt install openjdk-8-jdk-headless -qq
 ```
+
+The code is tested on google colab with 25GB of RAM.
+
 ## Feature extraction from audio files
 
 In this project an attempt is made to compute the constant-Q transform of audio signals and use these CQT features as the input of our models.
