@@ -1,0 +1,3 @@
+pyspark==2.4.5
+handyspark==0.2.2a1
+PyDrive
