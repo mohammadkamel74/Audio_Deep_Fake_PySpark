@@ -1,7 +1,7 @@
 # Audio_Deep_Fake_PySpark
 
-In this project an attempt is made to train models that are capable to detect fake or real audios. In this project Logistic Regression, Support Vector Machine, Naive Bayes and Multilayer Perceptron are used as the models. This project is implemented in pyspark framework and could be a very good starting points for those who wants learn big data frameworks like pyspark.
-
+In this project an attempt is made to train models that are capable to detect fake or real audio files. In this project Logistic Regression, Support Vector Machine, Naive Bayes and Multilayer Perceptron are used as models. This project is implemented in pyspark framework and could be a very good starting point for those who want to learn big data frameworks like pyspark.
+ 
 ## Installation
 
 #### Install the required Python packages:
