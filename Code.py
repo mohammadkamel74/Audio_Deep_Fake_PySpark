@@ -60,13 +60,13 @@ Combine_df = Combine_df.select("features", "label")
 # Shuffle data
 df_transform_fin = Combine_df.orderBy(rand())
 train_data=df_transform_fin
-print("The shape of the dataset is {:d} rows by {:d} columns".format(train_data.count(), len(train_data.columns)))
+print("The shape of the vectorized train dataset is {:d} rows by {:d} columns".format(train_data.count(), len(train_data.columns)))
 ################################################################################
 # Load test data
 df_test = sql_context.read.csv('Sample_Data/CQT_test.csv',
                     header=True,
                     inferSchema=True)
-print("The shape of the train dataset is {:d} rows by {:d} columns".format(df_test.count(), len(df_test.columns)))
+print("The shape of the test dataset is {:d} rows by {:d} columns".format(df_test.count(), len(df_test.columns)))
 # Merge all feature columns
 columns = ['pixel{:d}'.format(k) for k in range(7308)]
 assembler = VectorAssembler(inputCols=columns, 
@@ -74,8 +74,7 @@ assembler = VectorAssembler(inputCols=columns,
 Combine_df_test = assembler.transform(df_test)
 Combine_df_test = Combine_df_test.select("features", "label")
 test_data=Combine_df_test
-print("The shape of the test dataset is {:d} rows by {:d} columns".format(test_data.count(), len(test_data.columns)))
-
+print("The shape of the vectorized test dataset is {:d} rows by {:d} columns".format(test_data.count(), len(test_data.columns)))
 ################################################################################
                                                   # Logostic Regression
 # Build the model
@@ -137,7 +136,7 @@ FNN = MultilayerPerceptronClassifier(labelCol="label", featuresCol="features",ma
 modelFNN = FNN.fit(train_data)
 # Evaluation on test data
 predictionsFNN = modelFNN.transform(test_data)
-print("number of trainable weights in the network=" + str(len(modelFNN.weights)))
+print("number of trainable weights in the network(MLP)=" + str(len(modelFNN.weights)))
 evaluatorFNN = BinaryClassificationEvaluator(labelCol='label')
 auroc = evaluatorFNN.evaluate(predictionsFNN, {evaluatorFNN.metricName: "areaUnderROC"})
 auprc = evaluatorFNN.evaluate(predictionsFNN, {evaluatorFNN.metricName: "areaUnderPR"})
